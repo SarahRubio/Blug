@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blug</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/blug.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto+Mono&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="p-5 bgBlue">
+            <h1 class="fontWhite h1"><a href="/" class="text-reset">Blug</a></h1>
+            <p class="fontWhite">Blog de bugs et debugs</p>
+        </div>
+        
+        {% for post in posts %}
+            <div class="p-5">
+                <p class="opensans small">publié le {{ post.published_date }}</p>
+
+                <h2 class="h2 pb-4 pt-4"><a href="" class="text-reset">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
+        
+    </body>
+</html>
